@@ -115,7 +115,8 @@ func (builder *Builder) Model(model *Model) *Builder {
 func (builder *Builder) Build() (*ObjectBox, error) {
 	objectBox, err := builder.BuildOrError()
 	if err != nil {
-		panic(fmt.Sprintf("Could not create ObjectBox - please check configuration: %s", err))
+		//panic(fmt.Sprintf("Could not create ObjectBox - please check configuration: %s", err))
+		return objectBox, fmt.Errorf("could not create ObjectBox - please check configuration: %s", err)
 	}
 	return objectBox, nil
 }
