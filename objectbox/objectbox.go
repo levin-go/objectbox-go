@@ -87,7 +87,9 @@ type options struct {
 }
 
 // constant during runtime so no need to call this each time it's necessary
-var supportsResultArray = bool(C.obx_has_feature(C.OBXFeature_ResultArray))
+// Armv7 linux device bool(C.obx_has_feature(C.OBXFeature_ResultArray)) is false, will case a panic
+// var supportsResultArray = bool(C.obx_has_feature(C.OBXFeature_ResultArray))
+var supportsResultArray = true
 
 // Close fully closes the database and frees resources
 func (ob *ObjectBox) Close() {
